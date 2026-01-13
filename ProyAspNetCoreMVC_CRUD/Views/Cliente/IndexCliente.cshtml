@@ -1,0 +1,117 @@
+﻿@model IEnumerable<ProyAspNetCoreMVC_CRUD.Dto.ClienteResponseDto>
+
+@{
+    ViewData["Title"] = "IndexCliente";
+}
+
+<h1>IndexCliente</h1>
+
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>@TempData["mensaje"]</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<p>
+    <a asp-action="CreateCliente" class="btn btn-success">Nuevo (+)</a>
+</p>
+
+<table class="table table-striped table-hover table-bordered align-middle">
+    <thead class="table-dark">
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.cod_cli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nom_cli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tel_cli)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.cred_cli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fec_nac)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cod_dist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eli_cli)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.cod_cli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_cli)
+            </td>
+            
+            <td class="text-center">
+                @if (item.tel_cli == null)
+                {
+                    <span class="text-muted">- - -</span>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.tel_cli)
+                }
+            </td>
+            
+            <td class="text-center">
+                @if (item.cred_cli == null)
+                {
+                    <span class="text-muted">- - -</span>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.cred_cli)
+                }
+            </td>
+            
+            <td class="text-center">
+                @if (item.fec_nac == null)
+                {
+                    <span class="text-muted">- - -</span>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.fec_nac) 
+                }
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.cod_dist)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.eli_cli)
+            </td>
+            <td class="text-center">
+                @Html.ActionLink("Editar", "EditCliente", new { id = item.cod_cli }, new { @class = "btn btn-warning btn-sm" }) |
+                @Html.ActionLink("Detalle", "DetailsCliente", new { id = item.cod_cli }, new { @class = "btn btn-info btn-sm" }) |
+                @Html.ActionLink("Deshabilitar", "DeleteCliente", new { id = item.cod_cli }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div class="text-center mt-3 mb-5">
+    @for (int i = 0; i < ViewBag.paginacion; i++)
+    {
+    // En el new { @class = ... } agregamos "m-1" para separarlos sin usar &nbsp;
+    @Html.ActionLink(linkText: (i + 1).ToString(),
+    actionName: "IndexCliente",
+        routeValues: new { nropagina = i },
+        htmlAttributes: new { @class = "btn btn-primary m-1" }
+        )
+        }
+</div>

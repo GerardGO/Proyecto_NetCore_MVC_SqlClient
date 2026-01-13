@@ -1,0 +1,18 @@
+# --- Archivos compilados (Lo que dijo tu profesor) ---
+[Bb]in/
+[Oo]bj/
+
+# --- Archivos específicos de usuario y Visual Studio ---
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- Archivos temporales del sistema ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Archivos de logs (si los hubiera) ---
+*.log

@@ -1,0 +1,73 @@
+﻿@model ProyAspNetCoreMVC_CRUD.Dto.ClienteRequestDto
+
+@{
+    ViewData["Title"] = "EditCliente";
+}
+
+<h1>EditCliente</h1>
+
+<h4>Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditCliente">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cod_cli" class="control-label"></label>
+                <input asp-for="cod_cli" class="form-control" readonly /> @*Agregando readonly*@
+                <span asp-validation-for="cod_cli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nom_cli" class="control-label"></label>
+                <input asp-for="nom_cli" class="form-control" />
+                <span asp-validation-for="nom_cli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tel_cli" class="control-label"></label>
+                <input asp-for="tel_cli" class="form-control" />
+                <span asp-validation-for="tel_cli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cor_cli" class="control-label"></label>
+                <input asp-for="cor_cli" class="form-control" />
+                <span asp-validation-for="cor_cli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dir_cli" class="control-label"></label>
+                <input asp-for="dir_cli" class="form-control" />
+                <span asp-validation-for="dir_cli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cred_cli" class="control-label"></label>
+                <input asp-for="cred_cli" class="form-control" />
+                <span asp-validation-for="cred_cli" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fec_nac" class="control-label"></label>
+                <input asp-for="fec_nac" class="form-control" />
+                <span asp-validation-for="fec_nac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cod_dist" class="control-label"></label>
+                <!--AGREGAR DROPDOWNLIST PARA DISTRITOS-->
+                <select asp-for="cod_dist" asp-items="@ViewBag.distritos" class="form-select">
+                    <option value="" selected disabled>Seleccione un distrito</option>
+                </select>
+                <span asp-validation-for="cod_dist" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Actualizar" class="btn btn-success" /> |
+                <a asp-action="IndexCliente" class="btn btn-warning">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <h4><strong>@ViewBag.mensaje</strong></h4>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

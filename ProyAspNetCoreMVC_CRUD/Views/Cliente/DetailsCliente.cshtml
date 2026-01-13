@@ -1,0 +1,72 @@
+﻿@model ProyAspNetCoreMVC_CRUD.Dto.ClienteResponseDto
+
+@{
+    ViewData["Title"] = "DetailsCliente";
+}
+
+<h1>DetailsCliente</h1>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cod_cli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cod_cli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nom_cli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nom_cli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tel_cli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tel_cli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cor_cli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cor_cli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dir_cli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dir_cli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cred_cli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cred_cli)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fec_nac)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fec_nac)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cod_dist)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cod_dist)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.eli_cli)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.eli_cli)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditCliente" class="btn btn-primary" asp-route-id="@Model.cod_cli">Editar</a> | 
+    <a asp-action="IndexCliente" class="btn btn-warning">Regresar</a>
+</div>
