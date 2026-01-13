@@ -45,4 +45,6 @@ El proyecto sigue una estructura limpia y separada por responsabilidades:
   "ConnectionStrings": {
   "cn1": "Data Source=LOCALHOST;Initial Catalog=TU_BD;Integrated Security=true;TrustServerCertificate=True"
   }
+## ✒️ Author <br>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Gerard%20Guardales-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gerard-g-a134b5284/)
    
